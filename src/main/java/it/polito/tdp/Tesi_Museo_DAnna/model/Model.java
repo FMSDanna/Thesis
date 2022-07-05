@@ -29,9 +29,10 @@ public class Model {
 		this.stanzeList=new LinkedList<>();
 	}
 	public void inizializza() {
-		this.stanzeList=this.dao.getStanze();
+		this.opereList=this.dao.getOpere();
 		this.opereList=this.dao.getOpere();
 	}
+
 	public List<Opera> getOpere(){
 		
 		return this.opereList ;

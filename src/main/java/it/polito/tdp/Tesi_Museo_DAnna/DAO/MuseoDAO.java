@@ -22,7 +22,7 @@ public class MuseoDAO {
 	
 	public List<Opera> getOpere() {
 		
-		String sql = "SELECT *  FROM objects o,locations l WHERE o.objectid IN (SELECT  o1.objectid FROM objects o1, locations l1 WHERE o1.locationid=l1.locationid);";
+		String sql = "SELECT *  FROM objects o WHERE o.objectid IN (SELECT  o1.objectid FROM objects o1, locations l1 WHERE o1.locationid=l1.locationid);";
 		List<Opera> opere = new LinkedList<>();
 
 		try {
@@ -36,7 +36,7 @@ public class MuseoDAO {
 						res.getString("provenancetext"),res.getString("creditline"),res.getString("classification"),res.getString("subclassification"),res.getString("visualbrowserclassification"),res.getString("parentid"),res.getInt("isvirtual"),res.getString("departmentabbr"),res.getString("portfolio"),res.getString("series"),
 						res.getString("volume"),res.getString("watermarks"),res.getString("lastdetectedmodification"),res.getString("customprinturl"));
 				opere.add(o);
-
+				System.out.println("aggiunta opera:" +o);
 				
 			}
 				

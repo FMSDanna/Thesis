@@ -73,12 +73,7 @@ public class FXMLController {
     	
     }
 
-    @FXML
-    void handleImporta(ActionEvent event) {
-    	this.model.inizializza();
-    	this.model.creaOpereMap();
-    	this.model.creaStanzeMap();
-    }
+
 
     @FXML
     void handleRiempiAutori(ActionEvent event) {

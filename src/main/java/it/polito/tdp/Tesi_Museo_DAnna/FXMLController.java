@@ -47,7 +47,12 @@ public class FXMLController {
 
     @FXML
     void handleGetInfo(ActionEvent event) {
-    	
+    	this.txtResult1.clear();
+    	if(this.cmbOpere1.getValue()==null) {
+    		this.txtResult1.setText(">ERRORE! SELEZIONA UN'OPERA, SE PRESENTE NELL'ELENCO!<");
+    		return;
+    	} 
+    	this.txtResult1.setText(this.model.getInfo(this.cmbOpere1.getValue()));
     }
 
     @FXML

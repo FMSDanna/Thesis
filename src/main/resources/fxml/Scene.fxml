@@ -60,21 +60,21 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <ComboBox prefWidth="150.0" promptText="Work">
+                                          <ComboBox fx:id="cmbOpere1" prefHeight="26.0" prefWidth="481.0" promptText="Work">
                                              <HBox.margin>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                              </HBox.margin>
                                           </ComboBox>
                                           <Button fx:id="btnOpere1" mnemonicParsing="false" onAction="#handleGetInfo" prefHeight="26.0" prefWidth="118.0" text="Get Info">
                                              <HBox.margin>
-                                                <Insets bottom="20.0" left="390.0" right="20.0" top="20.0" />
+                                                <Insets bottom="20.0" left="60.0" right="20.0" top="20.0" />
                                              </HBox.margin>
                                           </Button>
                                        </children>
                                     </HBox>
                                  </children>
                               </VBox>
-                              <TextArea prefHeight="379.0" prefWidth="835.0" />
+                              <TextArea fx:id="txtResult1" prefHeight="379.0" prefWidth="835.0" />
                            </children>
                         </VBox>
                      </children>

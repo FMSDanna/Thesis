@@ -103,7 +103,7 @@ public class MuseoDAO {
 	} */
 	public List<Autore> getAutoriByAnno(int beg,int end) {
 
-		String sql = "SELECT DISTINCT attribution FROM objects WHERE beginyear>? AND endyear<? ORDER BY attribution;";
+		String sql = "SELECT DISTINCT attribution FROM objects WHERE beginyear>=? AND endyear<=? ORDER BY attribution;";
 		List<Autore> autori = new LinkedList<>();
 
 		try {

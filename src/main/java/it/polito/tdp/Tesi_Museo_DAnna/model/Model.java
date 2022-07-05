@@ -30,7 +30,10 @@ public class Model {
 	}
 	public void inizializza() {
 		this.opereList=this.dao.getOpere();
-		this.opereList=this.dao.getOpere();
+		this.stanzeList=this.dao.getStanze();
+		this.creaOpereMap();
+		this.creaStanzeMap();
+		
 	}
 
 	public List<Opera> getOpere(){
@@ -80,11 +83,11 @@ public class Model {
 	public String getInfo(Opera o) {
 		
 		String result="Work "+o.getObjectid()+
-						":\n-Title :"+ o.getTitle()+
-						"\n-Attribution :"+o.getAttribution()+
-						"\nPeriod :"+o.getBeginYear()+" - "+o.getEndYear()+
-						"\nDescription :" +o.getClassification()+" - \n"+o.getMedium()+
-						"\nDimensions: "+o.getDimensions()+"\n";
+						":\n-Title : "+ o.getTitle()+
+						"\n-Attribution : "+o.getAttribution()+
+						"\n-Period : "+o.getBeginYear()+" - "+o.getEndYear()+
+						"\n-Description : " +o.getClassification()+" - \n"+o.getMedium()+
+						"\n-Dimensions : "+o.getDimensions()+"\n";
 		return result;
 	}
 }

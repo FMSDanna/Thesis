@@ -207,7 +207,7 @@ public class Opera {
 	}
 	@Override
 	public String toString() {
-		return "Opera [title=" + title + "]";
+		return title ;
 	}
 	
 	

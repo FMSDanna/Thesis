@@ -50,7 +50,7 @@ public class MuseoDAO {
 	}
 	public List<Stanza> getStanze() {
 
-		String sql = "SELECT DISTINCT l.site,l.room,l.publicacces,l.description  FROM objects o, locations l where o.locationid=l.locationid;";
+		String sql = "SELECT DISTINCT l.site,l.room,l.publicacces,l.description  FROM objects o, locations l where o.locationid=l.locationid ORDER BY l.room;";
 		List<Stanza> stanze = new LinkedList<>();
 
 		try {

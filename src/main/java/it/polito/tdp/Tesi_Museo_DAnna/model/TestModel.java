@@ -17,8 +17,8 @@ public class TestModel {
 		for(Opera o:opere) {
 			System.out.println(o);
 			i++;
-			if(i>20) break;
+			if(i>5) break;
 		}
-		
+		System.out.println(model.getStanze()); 
 	}
 }

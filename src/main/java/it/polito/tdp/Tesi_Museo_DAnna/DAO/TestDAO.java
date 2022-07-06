@@ -3,9 +3,12 @@ package it.polito.tdp.Tesi_Museo_DAnna.DAO;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import it.polito.tdp.Tesi_Museo_DAnna.model.Opera;
 import it.polito.tdp.Tesi_Museo_DAnna.model.Stanza;
 
 
@@ -28,14 +31,20 @@ public class TestDAO {
 				System.out.println(opere.get(i)) ;
 			}
 			*/
-			Map<String,Stanza> mappa=dao.getStanze();
-			System.out.println(mappa.size());
-			List<String> stanze= new ArrayList<>(mappa.keySet());
-			System.out.println(stanze.size());
-			for(int i=0;i<30;i++) {
-				System.out.println(stanze.get(i)) ;
+			List<Stanza> mappa=dao.getStanze();
+			Map<String,Stanza> mappaStanze=new LinkedHashMap<>();
+			for(Stanza s: mappa) {
+				mappaStanze.put(s.getRoom(), s);
 			}
-			System.out.println(stanze.size());
+			List<Opera> opere=dao.getOpere(mappaStanze);
+			System.out.println(mappa.size());
+			for(int i=0;i<10;i++) {
+				System.out.println(mappa.get(i)) ;
+				List<Opera> opereStanza=new LinkedList<>(mappa.get(i).getOpere());
+				System.out.println(opereStanza);
+			}
+			System.out.println(mappa.size());
+			
 			
 		} catch (Exception e) {
 			System.err.println("Test FAILED");

@@ -3,6 +3,8 @@ package it.polito.tdp.Tesi_Museo_DAnna.model;
 
 
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Stanza {
@@ -11,7 +13,7 @@ public class Stanza {
 	private	String room;
 	private	int publicAccess;
 	private	String description;
-	private	LinkedHashMap<Integer,Opera> opere;
+	private	List<Opera> opere;
 	
 	public Stanza(String site, String room, int publicAccess, String description) {
 		super();
@@ -19,7 +21,7 @@ public class Stanza {
 		this.room = room;
 		this.publicAccess = publicAccess;
 		this.description = description;
-		this.opere= new LinkedHashMap<>();
+		this.opere= new LinkedList<>();
 	}
 	public String getSite() {
 		return site;
@@ -45,12 +47,10 @@ public class Stanza {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public LinkedHashMap<Integer, Opera> getOpere() {
+	public List<Opera> getOpere() {
 		return opere;
 	}
-	public void setOpere(LinkedHashMap<Integer, Opera> opere) {
-		this.opere = opere;
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -76,7 +76,11 @@ public class Stanza {
 	}
 	public void aggiungiOpera(Opera op) {
 		// TODO Auto-generated method stub
-		this.opere.put(op.getObjectid(), op);
+		this.opere.add( op);
+	}
+	@Override
+	public String toString() {
+		return "Stanza [room=" + room + "]";
 	}
 	
 	

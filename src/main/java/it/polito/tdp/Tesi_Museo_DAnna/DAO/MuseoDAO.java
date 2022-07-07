@@ -35,8 +35,10 @@ public class MuseoDAO {
 						res.getString("displaydate"),res.getString("beginyear"),res.getString("endyear"),res.getString("visualbrowsertimespan"),res.getString("medium"),res.getString("dimensions"),res.getString("inscription"),res.getString("markings"),res.getString("attributioninverted"),res.getString("attribution"),
 						res.getString("provenancetext"),res.getString("creditline"),res.getString("classification"),res.getString("subclassification"),res.getString("visualbrowserclassification"),res.getString("parentid"),res.getInt("isvirtual"),res.getString("departmentabbr"),res.getString("portfolio"),res.getString("series"),
 						res.getString("volume"),res.getString("watermarks"),res.getString("lastdetectedmodification"),res.getString("customprinturl"));
+				o.setRoom(stanze.get(res.getString("room")));
 				opere.add(o);
-				stanze.get(res.getString("room")).aggiungiOpera(o);				
+				stanze.get(res.getString("room")).aggiungiOpera(o);	
+				
 			}
 				
 

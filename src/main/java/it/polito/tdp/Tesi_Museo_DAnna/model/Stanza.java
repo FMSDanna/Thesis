@@ -2,10 +2,10 @@ package it.polito.tdp.Tesi_Museo_DAnna.model;
 
 
 
-import java.util.LinkedHashMap;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+
 
 public class Stanza {
 	
@@ -14,6 +14,7 @@ public class Stanza {
 	private	int publicAccess;
 	private	String description;
 	private	List<Opera> opere;
+	private Periodo periodo;
 	
 	public Stanza(String site, String room, int publicAccess, String description) {
 		super();
@@ -51,6 +52,12 @@ public class Stanza {
 		return opere;
 	}
 
+	public Periodo getPeriodo() {
+		return periodo;
+	}
+	public void setPeriodo(Periodo periodo) {
+		this.periodo = periodo;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

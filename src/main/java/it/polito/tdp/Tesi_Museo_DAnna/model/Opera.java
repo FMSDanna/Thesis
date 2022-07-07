@@ -31,6 +31,7 @@ public class Opera {
 	String watermarks;
 	String lastDetectedModification;
 	String customPrintUrl;
+	Stanza room;
 	public Opera(int objectid, int accessioned, String accessionNum, String locationId, String title,
 			String displayDate, String beginYear, String endYear, String visualBrowserTimespan, String medium,
 			String dimensions, String inscriptions, String markings, String attributionInverted, String attribution,
@@ -185,6 +186,15 @@ public class Opera {
 	public void setDepartmentAbbr(String departmentAbbr) {
 		this.departmentAbbr = departmentAbbr;
 	}
+	
+	public Stanza getRoom() {
+		return room;
+	}
+
+	public void setRoom(Stanza room) {
+		this.room = room;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

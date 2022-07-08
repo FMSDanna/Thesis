@@ -7,6 +7,8 @@ public class Visitatore {
 	List<Autore> autoriDiInteresse;
 	Periodo periodoDiInteresse;
 	
+
+
 	public Visitatore(String age) {
 		//se specifico l'età
 		this.age = age;
@@ -60,7 +62,17 @@ public class Visitatore {
 		return age;
 	}
 
+	public String getAge() {
+		return age;
+	}
 
+	public List<Autore> getAutoriDiInteresse() {
+		return autoriDiInteresse;
+	}
+
+	public Periodo getPeriodoDiInteresse() {
+		return periodoDiInteresse;
+	}
 	
 	private List<Autore> generaAutoriDiInteresse() {
 		// TODO Auto-generated method stub

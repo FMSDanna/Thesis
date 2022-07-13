@@ -122,9 +122,9 @@ public class Statistiche {
 	}
 	@Override
 	public String toString() {
-		return "Statistiche:\n" + "\nTotale Gruppi= " + totaleGruppi + "\nDi cui:"
-				+"\n#Famiglie= " + gruppiFamiglie +"\n#Generici= " + gruppiGenerici +"\n #Turistici= " + gruppiTuristici 
-				+ "\nTotale Visitatori= " + totaleClienti + "\nDi cui:\n -Bambini= " + bambini + "\n-Anziani= " + anziani + "\n-Adulti= "
+		return "Statistiche:" + "\nTotale Gruppi= " + totaleGruppi + "\nDi cui:"
+				+"\n#Famiglie= " + gruppiFamiglie +"   #Generici= " + gruppiGenerici +"   #Turistici= " + gruppiTuristici 
+				+ "\nTotale Visitatori= " + totaleClienti + "\nDi cui:\n#Bambini= " + bambini + "   #Anziani= " + anziani + "   #Adulti= "
 				+ adulti + "\nVisitatoriSenzaGuida= " + visitatoriSenzaGuida+ "\nRecensioni Positive= " + recensioniPositive +"\nRecensioni Negative= " + recensioniNegative+ "\nInsoddisfazione Media= " + insoddisfazioneMedia;
 	}
 

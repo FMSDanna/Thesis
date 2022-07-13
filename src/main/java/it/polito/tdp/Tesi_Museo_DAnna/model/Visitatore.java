@@ -1,11 +1,15 @@
 package it.polito.tdp.Tesi_Museo_DAnna.model;
 
+import java.time.Duration;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Visitatore {
-	String age;
-	List<Autore> autoriDiInteresse;
-	Periodo periodoDiInteresse;
+	protected String age;
+	protected List<Autore> autoriDiInteresse;
+	protected String periodoDiInteresse;
+	protected Duration uscita;
+	protected List<Stanza> visitate;
 	
 
 
@@ -13,39 +17,46 @@ public class Visitatore {
 		//se specifico l'età
 		this.age = age;
 		
-		
+		this.visitate= new LinkedList<>();
 		this.autoriDiInteresse = generaAutoriDiInteresse();
-		this.periodoDiInteresse = new Periodo();
+		this.periodoDiInteresse = null;
 	}
 
 	public Visitatore() {
 		this.age=generaAge();
-		
-		this.periodoDiInteresse = new Periodo();
+		this.visitate= new LinkedList<>();
+		this.periodoDiInteresse = null;
 		this.autoriDiInteresse = generaAutoriDiInteresse();
 		
 	}
 	
-	
-	public Visitatore(Periodo period) {
-		this.age=generaAge();
-		
-		this.periodoDiInteresse = new Periodo(period.getPeriodo());
-		this.autoriDiInteresse = generaAutoriDiInteresse();
-			}
-	public Visitatore(boolean b) {
-		this.age=generaAge();
-		this.periodoDiInteresse = null;
-		this.autoriDiInteresse = null;
-	}
-	public Visitatore(String age,Boolean b) {
-		//se specifico l'età
-		this.age = age;
-		
-		
-		this.periodoDiInteresse = null;
-		this.autoriDiInteresse = null;
-	}
+//	
+//	public Visitatore(Periodo period) {
+//		this.age=generaAge();
+//		this.visitate= new LinkedList<>();
+//		this.periodoDiInteresse = new Periodo(period.getPeriodo());
+//		this.autoriDiInteresse = generaAutoriDiInteresse();
+//			}
+//	public Visitatore(boolean b) {
+//		this.age=generaAge();
+//		this.periodoDiInteresse = null;
+//		this.autoriDiInteresse = null;
+//		this.visitate= new LinkedList<>();
+//	}
+//	public Visitatore(String age,Boolean b) {
+//		//se specifico l'età
+//		this.age = age;
+//		
+//		this.visitate= new LinkedList<>();
+//		this.periodoDiInteresse = null;
+//		this.autoriDiInteresse = null;
+//	}
+//	public Visitatore(String age,Periodo period) {
+//		this.age=age;
+//		this.visitate= new LinkedList<>();
+//		this.periodoDiInteresse = new Periodo(period.getPeriodo());
+//		this.autoriDiInteresse = generaAutoriDiInteresse();
+//			}
 
 	private String generaAge() {
 		double prob=Math.random();
@@ -70,7 +81,7 @@ public class Visitatore {
 		return autoriDiInteresse;
 	}
 
-	public Periodo getPeriodoDiInteresse() {
+	public String getPeriodoDiInteresse() {
 		return periodoDiInteresse;
 	}
 	
@@ -78,4 +89,21 @@ public class Visitatore {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Duration getUscita() {
+		return uscita;
+	}
+
+	public void setUscita(Duration uscita) {
+		this.uscita = uscita;
+	}
+
+	public List<Stanza> getVisitate() {
+		return visitate;
+	}
+
+	public void setPeriodoDiInteresse(String periodoDiInteresse) {
+		this.periodoDiInteresse = periodoDiInteresse;
+	}
+	
 }

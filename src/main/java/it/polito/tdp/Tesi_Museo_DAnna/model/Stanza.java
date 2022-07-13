@@ -14,7 +14,8 @@ public class Stanza {
 	private	int publicAccess;
 	private	String description;
 	private	List<Opera> opere;
-	private Periodo periodo;
+	private String periodo;
+	private int capienzaAttuale;
 	
 	public Stanza(String site, String room, int publicAccess, String description) {
 		super();
@@ -23,6 +24,7 @@ public class Stanza {
 		this.publicAccess = publicAccess;
 		this.description = description;
 		this.opere= new LinkedList<>();
+		this.periodo="";
 	}
 	public String getSite() {
 		return site;
@@ -52,11 +54,18 @@ public class Stanza {
 		return opere;
 	}
 
-	public Periodo getPeriodo() {
+	public String getPeriodo() {
 		return periodo;
 	}
-	public void setPeriodo(Periodo periodo) {
+	public void setPeriodo(String periodo) {
 		this.periodo = periodo;
+	}
+	
+	public int getCapienzaAttuale() {
+		return capienzaAttuale;
+	}
+	public void setCapienzaAttuale(int capienzaAttuale) {
+		this.capienzaAttuale = capienzaAttuale;
 	}
 	@Override
 	public int hashCode() {

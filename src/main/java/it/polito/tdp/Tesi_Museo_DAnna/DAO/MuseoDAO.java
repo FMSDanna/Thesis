@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -75,33 +73,10 @@ public class MuseoDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		//ArrayList<Stanza>stanze=new ArrayList<>(stanzeMap.values());
+		
 		return stanze;
 	}
-	/*public List<Location> getLocation() {
-		String sql = "SELECT o.objectid,l.room  FROM objects o, locations l where o.locationid=l.locationid;";
-		List<Location> result= new ArrayList<>();
 
-		try {
-			Connection conn = ConnectDB.getConnection();
-			PreparedStatement st = conn.prepareStatement(sql);
-			ResultSet res = st.executeQuery();
-
-			while (res.next()) {
-				
-				String room=res.getString("room");
-				int objectid=res.getInt("objectid");
-				Location l= new Location(objectid,room);
-				result.add(l);				
-				}
-			conn.close();
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-		//ArrayList<Stanza>stanze=new ArrayList<>(stanzeMap.values());
-		return result;
-	} */
 	public List<Autore> getAutoriByAnno(int beg,int end) {
 
 		String sql = "SELECT DISTINCT attribution FROM objects WHERE beginyear>=? AND endyear<=? ORDER BY attribution;";

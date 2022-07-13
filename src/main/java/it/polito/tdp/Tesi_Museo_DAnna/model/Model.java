@@ -25,7 +25,8 @@ public class Model {
 	List<Autore> autori;
 	List<Opera> opereList;
 	List<Stanza> stanzeList;
-	List<Periodo> periodi; 
+	List<String> periodi; 
+	List<String> periodiSponsorizzati;
 	List<Integer> begYear;
 	List<Integer> endYear;
 	
@@ -38,138 +39,146 @@ public class Model {
 		this.autori=new LinkedList<>();
 		this.opereList=new LinkedList<>();
 		this.stanzeList=new LinkedList<>();
+		this.periodiSponsorizzati= new LinkedList<>();
 		
 	}
 
 	public void inizializza() {
 		this.stanzeList=this.dao.getStanze();
+		
+		
+		
 		this.stanzeList.add(new Stanza("West Building",  "M-011", 1, "West Main Floor Gallery 11"));
 		this.stanzeList.add(new Stanza("West Building",  "M-137", 1, "West Bldg, Lobby D"));
 		this.stanzeList.add(new Stanza("West Building",  "M-103", 1, "West Bldg, Lobby A"));		
 		this.stanzeList.add(new Stanza("West Building",  "M-014", 1, "West Main Floor Gallery 14"));
 		this.stanzeList.add(new Stanza("West Building",  "M-015", 1, "West Main Floor Gallery 15"));
 		this.stanzeList.add(new Stanza("West Building",  "M-016", 1, "West Main Floor Gallery 16"));
-		
-		
+		this.stanzeList.add(new Stanza("West Building",  "M-073", 1, "West Main Floor Gallery 73"));
+		this.stanzeList.add(new Stanza("West Building",  "M-076", 1, "West Main Floor Gallery 73"));
+		this.stanzeList.add(new Stanza("West Building",  "M-078", 1, "West Main Floor Gallery 73"));
+
 		this.creaStanzeMap();
-		
-		this.stanzeMap.get("M-001").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-002").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-003").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-004").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-005").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-006").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-007").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-008").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-009").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-010").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-011").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-012").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-013").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-014").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		this.stanzeMap.get("M-015").setPeriodo(new Periodo("13th-to 15th Century Italian"));
-		
-		this.stanzeMap.get("M-016").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-017").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-018").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-019").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-020").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-021").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-022").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-023").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-024").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-025").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-026").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-027").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
-		this.stanzeMap.get("M-028").setPeriodo(new Periodo("16th-Century Italian and Spanish"));
+	
 		
 		
-		this.stanzeMap.get("M-029").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-030").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-031").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-032").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-033").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-034").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-036").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		this.stanzeMap.get("M-037").setPeriodo(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-001").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-002").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-003").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-004").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-005").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-006").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-007").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-008").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-009").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-010").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-011").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-012").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-013").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-014").setPeriodo( ("13th-to 15th Century Italian"));
+		this.stanzeMap.get("M-015").setPeriodo( ("13th-to 15th Century Italian"));
+		
+		this.stanzeMap.get("M-016").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-017").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-018").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-019").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-020").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-021").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-022").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-023").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-024").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-025").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-026").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-027").setPeriodo( ("16th-Century Italian and Spanish"));
+		this.stanzeMap.get("M-028").setPeriodo( ("16th-Century Italian and Spanish"));
 		
 		
-		this.stanzeMap.get("M-035").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		this.stanzeMap.get("M-035-A").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		this.stanzeMap.get("M-038").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		this.stanzeMap.get("M-039").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		this.stanzeMap.get("M-040").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		this.stanzeMap.get("M-041").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		this.stanzeMap.get("M-041-A").setPeriodo(new Periodo("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-029").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-030").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-031").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-032").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-033").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-034").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-036").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
+		this.stanzeMap.get("M-037").setPeriodo( ("17th- and 18th-Century Italian, Spanish and French"));
 		
-		this.stanzeMap.get("M-042").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-043").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-044").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-045").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-046").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-047").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-048").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-049").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-050").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-051").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-050-A").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-050-B").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
-		this.stanzeMap.get("M-050-C").setPeriodo(new Periodo("17th-Century Dutch and Flemish"));
+		
+		this.stanzeMap.get("M-035").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-035-A").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-038").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-039").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-040").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-041").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		this.stanzeMap.get("M-041-A").setPeriodo( ("15th-to 16th-Century Netherlandish and German"));
+		
+		this.stanzeMap.get("M-042").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-043").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-044").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-045").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-046").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-047").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-048").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-049").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-050").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-051").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-050-A").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-050-B").setPeriodo( ("17th-Century Dutch and Flemish"));
+		this.stanzeMap.get("M-050-C").setPeriodo( ("17th-Century Dutch and Flemish"));
 
-		this.stanzeMap.get("M-052").setPeriodo(new Periodo("18th- and 19th-Century Spanish"));
+		this.stanzeMap.get("M-052").setPeriodo( ("18th- and 19th-Century Spanish"));
 		
-		this.stanzeMap.get("M-053").setPeriodo(new Periodo("18th-and Early 19th-Century French"));
-		this.stanzeMap.get("M-054").setPeriodo(new Periodo("18th-and Early 19th-Century French"));
-		this.stanzeMap.get("M-055").setPeriodo(new Periodo("18th-and Early 19th-Century French"));
-		this.stanzeMap.get("M-056").setPeriodo(new Periodo("18th-and Early 19th-Century French"));
+		this.stanzeMap.get("M-053").setPeriodo( ("18th-and Early 19th-Century French"));
+		this.stanzeMap.get("M-054").setPeriodo( ("18th-and Early 19th-Century French"));
+		this.stanzeMap.get("M-055").setPeriodo( ("18th-and Early 19th-Century French"));
+		this.stanzeMap.get("M-056").setPeriodo( ("18th-and Early 19th-Century French"));
 		
-		this.stanzeMap.get("M-080").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-081").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-082").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-083").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-084").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-085").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-086").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-087").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-088").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-089").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-090").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-091").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-092").setPeriodo(new Periodo("19th-Century French"));
-		this.stanzeMap.get("M-093").setPeriodo(new Periodo("19th-Century French"));
+		this.stanzeMap.get("M-080").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-081").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-082").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-083").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-084").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-085").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-086").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-087").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-088").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-089").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-090").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-091").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-092").setPeriodo( ("19th-Century French"));
+		this.stanzeMap.get("M-093").setPeriodo( ("19th-Century French"));
 		
-		this.stanzeMap.get("M-057").setPeriodo(new Periodo("British"));
-		this.stanzeMap.get("M-058").setPeriodo(new Periodo("British"));
-		this.stanzeMap.get("M-059").setPeriodo(new Periodo("British"));
-		this.stanzeMap.get("M-061").setPeriodo(new Periodo("British"));
-		this.stanzeMap.get("M-063").setPeriodo(new Periodo("British"));
+		this.stanzeMap.get("M-057").setPeriodo( ("British"));
+		this.stanzeMap.get("M-058").setPeriodo( ("British"));
+		this.stanzeMap.get("M-059").setPeriodo( ("British"));
+		this.stanzeMap.get("M-061").setPeriodo( ("British"));
+		this.stanzeMap.get("M-063").setPeriodo( ("British"));
 
-		this.stanzeMap.get("M-060").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-060-A").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-060-B").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-062").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-064").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-065").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-066").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-067").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-068").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-069").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-070").setPeriodo(new Periodo("American"));
-		this.stanzeMap.get("M-071").setPeriodo(new Periodo("American"));
+		this.stanzeMap.get("M-060").setPeriodo( ("American"));
+		this.stanzeMap.get("M-060-A").setPeriodo( ("American"));
+		this.stanzeMap.get("M-060-B").setPeriodo( ("American"));
+		this.stanzeMap.get("M-062").setPeriodo( ("American"));
+		this.stanzeMap.get("M-064").setPeriodo( ("American"));
+		this.stanzeMap.get("M-065").setPeriodo( ("American"));
+		this.stanzeMap.get("M-066").setPeriodo( ("American"));
+		this.stanzeMap.get("M-067").setPeriodo( ("American"));
+		this.stanzeMap.get("M-068").setPeriodo( ("American"));
+		this.stanzeMap.get("M-069").setPeriodo( ("American"));
+		this.stanzeMap.get("M-070").setPeriodo( ("American"));
+		this.stanzeMap.get("M-071").setPeriodo( ("American"));
 		
-		this.stanzeMap.get("M-072").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-073").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-074").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-075").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-076").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-077").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-078").setPeriodo(new Periodo("Special Exhibitions"));
-		this.stanzeMap.get("M-079").setPeriodo(new Periodo("Special Exhibitions"));
+		this.stanzeMap.get("M-072").setPeriodo( ("Special Exhibitions"));
+		this.stanzeMap.get("M-073").setPeriodo( ("Special Exhibitions"));
+		this.stanzeMap.get("M-074").setPeriodo( ("Special Exhibitions"));
+		this.stanzeMap.get("M-075").setPeriodo( ("Special Exhibitions"));
+		this.stanzeMap.get("M-076").setPeriodo("Special Exhibitions");
+		this.stanzeMap.get("M-077").setPeriodo("Special Exhibitions");
+		this.stanzeMap.get("M-078").setPeriodo("Special Exhibitions");
+		this.stanzeMap.get("M-079").setPeriodo("Special Exhibitions");
 
 		
 		this.opereList=this.dao.getOpere(stanzeMap);
 		this.creaOpereMap();
-		
+		this.creaGrafo();
 		
 	}
 
@@ -226,17 +235,22 @@ public class Model {
 						"\n-Attribution : "+o.getAttribution()+
 						"\n-Period : "+o.getBeginYear()+" - "+o.getEndYear()+
 						"\n-Description : " +o.getClassification()+" - \n"+o.getMedium()+
-						"\n-Dimensions : "+o.getDimensions()+"\n";
+						"\n-Dimensions : "+o.getDimensions()+
+						"\n-Stanza : "+o.getRoom()+"\n";
 		return result;
 	}
 	
+	public List<String> getPeriodi() {
+		return periodi;
+	}
+
 	public void creaGrafo() {
 		museo= new SimpleGraph<Stanza,DefaultEdge>(DefaultEdge.class);
 		Graphs.addAllVertices(museo, this.stanzeList);
-		//collego la Rotunda (hub centrale del museo) con i servizi 
-		museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-113")); 
-		museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-121")); 
-		museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-127")); 
+		//collego la Rotunda (hub centrale del museo) con le stanze adiacenti
+		//museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-113")); 
+		//museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-121")); 
+		//museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-127")); 
 		museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-106")); 
 		museo.addEdge(this.stanzeMap.get("M-107"), this.stanzeMap.get("M-134"));
 		
@@ -390,6 +404,9 @@ public class Model {
 		museo.addEdge(this.stanzeMap.get("M-072"), this.stanzeMap.get("M-073"));
 		museo.addEdge(this.stanzeMap.get("M-073"), this.stanzeMap.get("M-074"));
 		museo.addEdge(this.stanzeMap.get("M-073"), this.stanzeMap.get("M-077"));
+		museo.addEdge(this.stanzeMap.get("M-073"), this.stanzeMap.get("M-073-A"));
+		museo.addEdge(this.stanzeMap.get("M-073"), this.stanzeMap.get("M-073-B"));
+		museo.addEdge(this.stanzeMap.get("M-073-B"), this.stanzeMap.get("M-073-A"));
 		museo.addEdge(this.stanzeMap.get("M-074"), this.stanzeMap.get("M-075"));
 		museo.addEdge(this.stanzeMap.get("M-074"), this.stanzeMap.get("M-083"));
 		museo.addEdge(this.stanzeMap.get("M-075"), this.stanzeMap.get("M-076"));
@@ -398,6 +415,9 @@ public class Model {
 		museo.addEdge(this.stanzeMap.get("M-076"), this.stanzeMap.get("M-077"));
 		museo.addEdge(this.stanzeMap.get("M-077"), this.stanzeMap.get("M-078"));
 		museo.addEdge(this.stanzeMap.get("M-078"), this.stanzeMap.get("M-079"));
+		museo.addEdge(this.stanzeMap.get("M-078"), this.stanzeMap.get("M-078-A"));
+		museo.addEdge(this.stanzeMap.get("M-078"), this.stanzeMap.get("M-078-B"));
+		museo.addEdge(this.stanzeMap.get("M-078-B"), this.stanzeMap.get("M-078-A"));
 		museo.addEdge(this.stanzeMap.get("M-079"), this.stanzeMap.get("M-080"));
 		museo.addEdge(this.stanzeMap.get("M-080"), this.stanzeMap.get("M-081"));
 		museo.addEdge(this.stanzeMap.get("M-081"), this.stanzeMap.get("M-082"));
@@ -420,21 +440,41 @@ public class Model {
 		
 	}
 	
-	private List<Periodo> creaPeriodi() {
-		List<Periodo> periodi= new ArrayList<Periodo>();
-		periodi.add(new Periodo("13th-to 15th Century Italian"));
-		periodi.add(new Periodo("16th-Century Italian and Spanish"));
-		periodi.add(new Periodo("17th- and 18th-Century Italian, Spanish and French"));
-		periodi.add(new Periodo("15th-to 16th-Century Netherlandish and German"));
-		periodi.add(new Periodo("17th-Century Dutch and Flemish"));
-		periodi.add(new Periodo("18th- and 19th-Century Spanish"));
-		periodi.add(new Periodo("18th-and Early 19th-Century French"));
-		periodi.add(new Periodo("19th-Century French"));
-		periodi.add(new Periodo("British"));
-		periodi.add(new Periodo("American"));
-		periodi.add(new Periodo("Special Exhibitions"));
-		periodi.add(new Periodo("Prints and Drawings"));
+	public void setPeriodiSponsorizzati(List<String> periodiSponsorizzati) {
+		this.periodiSponsorizzati = periodiSponsorizzati;
+	}
+	public void aggiungiSponsorizzati(String periodo) {
+		this.periodiSponsorizzati.add(periodo);
+	}
 
+	public List<String> getPeriodiSponsorizzati() {
+		return periodiSponsorizzati;
+	}
+
+	private List<String> creaPeriodi() {
+		List<String> periodi= new ArrayList<String>();
+		periodi.add( "13th-to 15th Century Italian");
+		periodi.add( "16th-Century Italian and Spanish");
+		periodi.add( "17th- and 18th-Century Italian, Spanish and French");
+		periodi.add( "15th-to 16th-Century Netherlandish and German");
+		periodi.add( "17th-Century Dutch and Flemish");
+		periodi.add( "18th- and 19th-Century Spanish");
+		periodi.add( "18th-and Early 19th-Century French");
+		periodi.add( "19th-Century French");
+		periodi.add( "British");
+		periodi.add( "American");
+		periodi.add( "Special Exhibitions");
+		periodi.add( "Prints and Drawings");
+		
 		return periodi;
+	}
+
+	public String iniziaSimulazione(int audioGuide,int capienzaMax,int numVisitatoriMax,int durataMinStanza,int durataMaxStanza,
+			int durataMaxVisita,int durataMinVisita,double probabilitaInsoddisfazione,double probabilitaSponsor) {
+		Simulator simulator= new Simulator(this.museo,this.stanzeMap,this.periodiSponsorizzati,this.periodi);
+		simulator.init( audioGuide, capienzaMax, numVisitatoriMax, durataMinStanza, durataMaxStanza,
+				 durataMaxVisita, durataMinVisita, probabilitaInsoddisfazione,probabilitaSponsor);
+		simulator.run();
+		return simulator.getStatistiche().toString();
 	}
 }

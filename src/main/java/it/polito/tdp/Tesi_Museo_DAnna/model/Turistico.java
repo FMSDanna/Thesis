@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Turistico extends Gruppo{
-		private Periodo periodoInteresse;
+		private String periodoInteresse;
 
 		public Turistico() {
 			super();
@@ -12,13 +12,13 @@ public class Turistico extends Gruppo{
 			int nTuristi = (int)(Math.random()*(15+1));
 			List<Visitatore> membri= new ArrayList<>();
 			for(int i=0; i<=nTuristi;i++) {
-				membri.add(new Visitatore(false));
+				membri.add(new Visitatore());
 			}
 			this.visitatori=membri;
-			this.periodoInteresse = new Periodo();
+			this.periodoInteresse = null;
 		}
 
-		public Periodo getPeriodoInteresse() {
+		public String getPeriodoInteresse() {
 			return periodoInteresse;
 		}
 

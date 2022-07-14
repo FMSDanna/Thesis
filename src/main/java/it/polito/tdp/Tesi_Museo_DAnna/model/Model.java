@@ -469,8 +469,9 @@ public class Model {
 		return periodi;
 	}
 
-	public String iniziaSimulazione(int audioGuide,int capienzaMax,int numVisitatoriMax,int durataMinStanza,int durataMaxStanza,
-			int durataMaxVisita,int durataMinVisita,double probabilitaInsoddisfazione,double probabilitaSponsor) {
+	public String iniziaSimulazione(int audioGuide,int capienzaMax,int numVisitatoriMax,int durataMinStanza,
+			int durataMaxStanza,int durataMaxVisita,int durataMinVisita,double probabilitaInsoddisfazione,
+			double probabilitaSponsor) {
 		Simulator simulator= new Simulator(this.museo,this.stanzeMap,this.periodiSponsorizzati,this.periodi);
 		simulator.init( audioGuide, capienzaMax, numVisitatoriMax, durataMinStanza, durataMaxStanza,
 				 durataMaxVisita, durataMinVisita, probabilitaInsoddisfazione,probabilitaSponsor);

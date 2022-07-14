@@ -124,8 +124,10 @@ public class Statistiche {
 	public String toString() {
 		return "Statistiche:" + "\nTotale Gruppi= " + totaleGruppi + "\nDi cui:"
 				+"\n#Famiglie= " + gruppiFamiglie +"   #Generici= " + gruppiGenerici +"   #Turistici= " + gruppiTuristici 
-				+ "\nTotale Visitatori= " + totaleClienti + "\nDi cui:\n#Bambini= " + bambini + "   #Anziani= " + anziani + "   #Adulti= "
-				+ adulti + "\nVisitatoriSenzaGuida= " + visitatoriSenzaGuida+ "\nRecensioni Positive= " + recensioniPositive +"\nRecensioni Negative= " + recensioniNegative+ "\nInsoddisfazione Media= " + insoddisfazioneMedia;
+				+ "\nTotale Visitatori= " + totaleClienti + "\nDi cui:\n#Bambini= " + bambini + "   #Anziani= " + anziani +
+				"   #Adulti= "+ adulti + "\nVisitatoriSenzaGuida= " + visitatoriSenzaGuida+ "\nRecensioni Positive= " +
+				recensioniPositive +"\nRecensioni Negative= " + recensioniNegative+ "\nInsoddisfazione Media= " +
+				insoddisfazioneMedia;
 	}
 
 	

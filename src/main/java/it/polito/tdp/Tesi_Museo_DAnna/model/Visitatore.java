@@ -29,34 +29,6 @@ public class Visitatore {
 		this.autoriDiInteresse = generaAutoriDiInteresse();
 		
 	}
-	
-//	
-//	public Visitatore(Periodo period) {
-//		this.age=generaAge();
-//		this.visitate= new LinkedList<>();
-//		this.periodoDiInteresse = new Periodo(period.getPeriodo());
-//		this.autoriDiInteresse = generaAutoriDiInteresse();
-//			}
-//	public Visitatore(boolean b) {
-//		this.age=generaAge();
-//		this.periodoDiInteresse = null;
-//		this.autoriDiInteresse = null;
-//		this.visitate= new LinkedList<>();
-//	}
-//	public Visitatore(String age,Boolean b) {
-//		//se specifico l'età
-//		this.age = age;
-//		
-//		this.visitate= new LinkedList<>();
-//		this.periodoDiInteresse = null;
-//		this.autoriDiInteresse = null;
-//	}
-//	public Visitatore(String age,Periodo period) {
-//		this.age=age;
-//		this.visitate= new LinkedList<>();
-//		this.periodoDiInteresse = new Periodo(period.getPeriodo());
-//		this.autoriDiInteresse = generaAutoriDiInteresse();
-//			}
 
 	private String generaAge() {
 		double prob=Math.random();

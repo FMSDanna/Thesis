@@ -115,7 +115,7 @@ public class FXMLController {
 	    			);
     	}catch(Exception e){
     		this.txtResult2.setText(e.toString());
-    		this.txtResult2.appendText("\n>ERRORE! INSERIRE SOLO NUMERI INTERI!<");
+    		this.txtResult2.appendText("\n>ERRORE! INSERIRE SOLO NUMERI INTERI E ALMENO UN PERIODO SPONSORIZZATO<");
     		return;
     	}
     	

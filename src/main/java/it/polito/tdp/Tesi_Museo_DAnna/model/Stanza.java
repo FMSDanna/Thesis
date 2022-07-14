@@ -15,7 +15,7 @@ public class Stanza {
 	private	String description;
 	private	List<Opera> opere;
 	private String periodo;
-	private int capienzaAttuale;
+	private int capienzaAttuale;	
 	
 	public Stanza(String site, String room, int publicAccess, String description) {
 		super();

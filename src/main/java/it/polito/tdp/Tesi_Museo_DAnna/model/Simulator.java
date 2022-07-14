@@ -22,7 +22,6 @@ public class Simulator {
 	private Graph<Stanza, DefaultEdge> mappaMuseo;
 	private List<Gruppo> gruppi;
 	private int audioGuide;
-	
 	private List<String> stanzeCriticheConOra;
 	private int capienzaMax;
 	private int nPersone;
@@ -37,20 +36,12 @@ public class Simulator {
 	private int durataMinVisita;
 	private double probabilitaInsoddisfazione;
 	private double 	probabilitaSponsor;
-;
-
 	//Parametri della simulazione 
-	
-	
 	private int T_ARRIVO_MAX = 17*60;
 	private int T_ARRIVO_MIN = 10*60;
-	private int T_CHIUSURA= 18*60;
-
-	
-	
+	private int T_CHIUSURA= 18*60;	
 	//Coda degli eventi
 	private PriorityQueue<Event> queue;
-	
 	//Statistiche
 	private Statistiche statistiche;
 	
@@ -204,9 +195,7 @@ public class Simulator {
 					//alla fine della durata della visita
 					//sennò all'orario di chiusura.
 					//poi cambio la stanza perchè inizia il tour, quindi creo un evento
-					//cambio_stanza 
-					
-					
+					//cambio_stanza 					
 					Duration uscita= e.getTime().plus(e.getDurata());
 					if (uscita.toMinutes()>T_CHIUSURA) {
 						uscita=Duration.ofMinutes(T_CHIUSURA);
@@ -256,17 +245,13 @@ public class Simulator {
 						Event cambio= new Event(time,EventType.CAMBIO_STANZA,nPersone,g,durataStanza,e.getStanzaPartenza(),stanza);
 						queue.add(cambio);
 						}
-						
-						
-
-
 				}
 			break;
 
 		case CAMBIO_STANZA:
-			
 			Gruppo gc= e.getGruppo();
 			Stanza attuale= e.getStanzaPartenza();
+			//controllo la capienza
 			if((attuale.getCapienzaAttuale()+e.getnPersone())>=capienzaMax) {
 				Double prob= Math.random();
 				if(prob<=probabilitaInsoddisfazione)
@@ -278,15 +263,19 @@ public class Simulator {
 					break;
 				}
 				int t= (int)e.getTime().toMinutes();
-				int hours = t / 60; //since both are ints, you get an int
+				int hours = t / 60; 
 				int minutes = t % 60;
-				
-				this.stanzeCriticheConOra.add("STANZA CRITICA: "+attuale+" alle ore "+hours+":"+minutes );
-				
-			
+				String minutiConZero="";
+				if (minutes<10) {
+					 minutiConZero= "0"+minutes;
+				}
+				//Considero la rotonda di grandezza infinita 
+				if(!attuale.equals(stanzeMap.get("M-107")))
+					if(minutes<10)
+						this.stanzeCriticheConOra.add("STANZA CRITICA: "+attuale+" alle ore "+hours+":"+minutiConZero );
+					else
+						this.stanzeCriticheConOra.add("STANZA CRITICA: "+attuale+" alle ore "+hours+":"+minutes );
 			}
-
-			
 				System.out.println("Cambio stanza gruppo "+gc.getNomeGruppo());
 				Stanza stanzaS= scegliStanza(e.getStanzaPrecedente(),e.getStanzaPartenza(),gc.getVisitate(), gc,null);
 				Duration durataStanzaS= Duration.ofMinutes(
@@ -295,6 +284,7 @@ public class Simulator {
 				if(timeS.toMinutes()<=gc.getUscita().toMinutes()) {
 				Event cambioS= new Event(timeS,EventType.CAMBIO_STANZA,nPersone,gc,durataStanzaS,e.getStanzaPartenza(),stanzaS);
 				queue.add(cambioS);
+				//aggiorno la capienza delle due stanze coinvolte nel cambio
 				attuale.setCapienzaAttuale(attuale.getCapienzaAttuale()-e.getnPersone());
 				stanzaS.setCapienzaAttuale(stanzaS.getCapienzaAttuale()+e.getnPersone());
 				}
@@ -329,22 +319,16 @@ private Stanza scegliStanza(Stanza stanzaPrecedente,Stanza stanzaAttuale,List<St
 	String periodoInteresse="";
 	if(g!=null) {
 		//si sta spostando un gruppo
-		periodoInteresse= g.getPeriodoDiInteresse();
-		
+		periodoInteresse= g.getPeriodoDiInteresse();	
 	}
 	if (v!=null) {
 		//si sta spostando un visistatore
 		periodoInteresse= v.getPeriodoDiInteresse();
-		
 	}
-
 	Stanza prossima= null;
 	Stanza precedente=stanzaPrecedente;
 	List<Stanza> possibili= new LinkedList<>(Graphs.neighborListOf(this.mappaMuseo, stanzaAttuale)) ;
 	List<Stanza> possibiliPreferite= new LinkedList<>();
-
-
-	
 	int conta=0;
 	//Conto quante stanze hanno in comune le visitate e le possibili
 	for(Stanza sv: visitate) {
@@ -362,16 +346,12 @@ private Stanza scegliStanza(Stanza stanzaPrecedente,Stanza stanzaAttuale,List<St
 			//se rimuovendo la precedente la lista possibili è vuota allora la 
 			//precedente è l'unica stanza disponibile e la scelgo
 			prossima=precedente;
-			
 		}
 		else {
 			//sennò ne scelgo una a caso tra le possibili anche se già visitate
 			prossima=possibili.get((int)(Math.random()*(possibili.size())));
 		}
-		
-		
 	}
-	
 	else {
 		//se non è un vicolo cieco lavoro con le stanze preferibili perchè hanno un periodo di interesse uguale a quello
 		//del gruppo o del visitatore
@@ -382,7 +362,6 @@ private Stanza scegliStanza(Stanza stanzaPrecedente,Stanza stanzaAttuale,List<St
 				}
 			}
 		}
-
 	}
 	if(possibiliPreferite.size()!=0) {
 		//se ci sono delle stanze preferibili scelgo una a caso tra quelle
@@ -395,7 +374,6 @@ private Stanza scegliStanza(Stanza stanzaPrecedente,Stanza stanzaAttuale,List<St
 			prossima= possibili.get(indice);
 		}
 		//Se non ci sono ne scelgo una a caso tra le possibili
-
 	}
 	System.out.println(" dalla stanza "+stanzaAttuale+" Alla stanza "+prossima);
 	visitate.add(prossima);
@@ -411,11 +389,15 @@ private void esci(Duration time, EventType type, int nPersone, Gruppo gruppo, Du
 }
 
 
-	public Statistiche getStatistiche() {
+	public String getStatistiche() {
 
 		this.statistiche.calcolaMediaInsoddisfazione();
+		String critiche= "\nStanze critiche e orario:";
+		for(String s: stanzeCriticheConOra) {
+			critiche+="\n"+s;
+			}
 		
-		return this.statistiche;
+		return this.statistiche.toString()+critiche;
 	}
 	
 	

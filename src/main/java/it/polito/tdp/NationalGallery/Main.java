@@ -1,4 +1,4 @@
-package it.polito.tdp.Tesi_Museo_DAnna;
+package it.polito.tdp.NationalGallery;
 
 public class Main {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package it.polito.tdp.Tesi_Museo_DAnna.DAO;
+package it.polito.tdp.NationalGallery.DAO;
 
 
 import java.sql.Connection;
@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import it.polito.tdp.Tesi_Museo_DAnna.model.Opera;
-import it.polito.tdp.Tesi_Museo_DAnna.model.Stanza;
+import it.polito.tdp.NationalGallery.model.Opera;
+import it.polito.tdp.NationalGallery.model.Stanza;
 
 
 

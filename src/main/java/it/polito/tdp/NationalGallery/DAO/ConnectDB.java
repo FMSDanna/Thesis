@@ -1,4 +1,4 @@
-package it.polito.tdp.Tesi_Museo_DAnna.DAO;
+package it.polito.tdp.NationalGallery.DAO;
 
 import java.sql.Connection;
 import java.sql.SQLException;

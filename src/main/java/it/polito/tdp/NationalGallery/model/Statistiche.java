@@ -1,4 +1,4 @@
-package it.polito.tdp.Tesi_Museo_DAnna.model;
+package it.polito.tdp.NationalGallery.model;
 
 public class Statistiche {
 

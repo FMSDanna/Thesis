@@ -1,10 +1,10 @@
-package it.polito.tdp.Tesi_Museo_DAnna;
+package it.polito.tdp.NationalGallery;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 
-import it.polito.tdp.Tesi_Museo_DAnna.FXMLController;
-import it.polito.tdp.Tesi_Museo_DAnna.model.Model;
+import it.polito.tdp.NationalGallery.FXMLController;
+import it.polito.tdp.NationalGallery.model.Model;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

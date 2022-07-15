@@ -1,4 +1,4 @@
-package it.polito.tdp.Tesi_Museo_DAnna.model;
+package it.polito.tdp.NationalGallery.model;
 
 
 
@@ -14,7 +14,7 @@ import org.jgrapht.graph.DefaultEdge;
 
 import org.jgrapht.graph.SimpleGraph;
 
-import it.polito.tdp.Tesi_Museo_DAnna.DAO.MuseoDAO;
+import it.polito.tdp.NationalGallery.DAO.MuseoDAO;
 
 
 

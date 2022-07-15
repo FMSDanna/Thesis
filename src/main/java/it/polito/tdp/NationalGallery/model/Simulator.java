@@ -1,4 +1,4 @@
-package it.polito.tdp.Tesi_Museo_DAnna.model;
+package it.polito.tdp.NationalGallery.model;
 
 
 import java.time.Duration;
@@ -15,7 +15,7 @@ import org.jgrapht.Graph;
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultEdge;
 
-import it.polito.tdp.Tesi_Museo_DAnna.model.Event.EventType;
+import it.polito.tdp.NationalGallery.model.Event.EventType;
 
 public class Simulator {
 	//Modello
@@ -252,7 +252,7 @@ public class Simulator {
 			Gruppo gc= e.getGruppo();
 			Stanza attuale= e.getStanzaPartenza();
 			//controllo la capienza
-			if((attuale.getCapienzaAttuale()+e.getnPersone())>=capienzaMax) {
+			if((attuale.getCapienzaAttuale()>=capienzaMax)) {
 				Double prob= Math.random();
 				if(prob<=probabilitaInsoddisfazione)
 				gc.aumentaInsoddisfazione();
@@ -260,6 +260,7 @@ public class Simulator {
 				if(gc.getInsoddisfazione()>=5) {
 					esci(e.getTime().plus(Duration.ofMinutes(1)),EventType.USCITA_GRUPPO,gc.getVisitatori().size(),gc,null,null);
 					this.statistiche.incrementaRecensioniNegative(e.getnPersone());
+					attuale.setCapienzaAttuale(attuale.getCapienzaAttuale()-e.getnPersone());
 					break;
 				}
 				int t= (int)e.getTime().toMinutes();

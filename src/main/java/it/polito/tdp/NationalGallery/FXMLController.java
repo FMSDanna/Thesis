@@ -1,12 +1,12 @@
-package it.polito.tdp.Tesi_Museo_DAnna;
+package it.polito.tdp.NationalGallery;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import it.polito.tdp.Tesi_Museo_DAnna.model.Autore;
-import it.polito.tdp.Tesi_Museo_DAnna.model.Model;
-import it.polito.tdp.Tesi_Museo_DAnna.model.Opera;
+import it.polito.tdp.NationalGallery.model.Autore;
+import it.polito.tdp.NationalGallery.model.Model;
+import it.polito.tdp.NationalGallery.model.Opera;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
